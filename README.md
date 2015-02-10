@@ -10,7 +10,10 @@ Nymphicus has quite some dependencies to external libraries. Many of them are in
 
 ### API keys
 Of course Nymphicus needs API keys for many services like Twitter, App.net or some external servies (TwitLonger, Pocket, ...) so for all the components you want to use you have to get one on their developer pages. I am sorry that I can't provide my ones as this would violate the permissions bound to the API access in most if not all cases.
-I still have (of course) all the valid API keys - so if yu want to create an official release we might work together.
+
+**All API keys are stored in the files API.ConnectionData.cs** - so there you can see which ones are needed and have a central place to store them
+
+I still have (of course) all the valid API keys - so if you want to create an official release we might work together.
 
 ### Setup file
 Setup file is created using http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/ 

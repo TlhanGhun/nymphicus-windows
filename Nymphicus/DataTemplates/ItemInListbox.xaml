@@ -1,0 +1,97 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Nymphicus.Controls" 
+                    xmlns:local="clr-namespace:Nymphicus"
+                    xmlns:dataTypes="clr-namespace:Nymphicus.Model"
+                   
+                    >
+    <DataTemplate DataType="{x:Type dataTypes:TwitterItem}" x:Key="ItemInListbox">
+        <Border Name="borderItem" BorderBrush="{Binding Path=BackgroundColor}" BorderThickness="1,1,10,1" CornerRadius="5" Background="White" Margin="0,0,0,4" >
+            <VirtualizingStackPanel Name="Item" Margin="3,3,3,3">
+
+                <!--  <StackPanel.Background>
+                <SolidColorBrush Color="{Binding Path=BackgroundColor}" />
+            </StackPanel.Background> -->
+
+                <!--   <StackPanel.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="{Binding Path=BackgroundColorGradientLight}" Offset="0"/>
+                                <GradientStop Color="{Binding Path=BackgroundColorGradientDark}" Offset="1"/>
+                            </LinearGradientBrush>
+                        </StackPanel.Background> -->
+
+                <WrapPanel  Height="48" Width="48" Margin="0,0,0,-48" Background="Black" Opacity="0.75"  HorizontalAlignment="Left"  Panel.ZIndex="99" VerticalAlignment="Top">
+                    <Grid  Width="48" Height="48" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Button Name="buttonReply" Width="16" Height="16" Background="Transparent" BorderBrush="Transparent" Margin="-20,-20,0,0">
+                            <Image Name="imageButtonReply">
+                                <Image.Style>
+                                    <Style>
+                                        <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/reply.png" />
+                                        <Style.Triggers>
+                                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/replyHover.png" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button ToolTip="Retweet" Name="buttonRetweet" Width="16" Height="16" Background="Transparent" BorderBrush="Transparent"  Margin="20,-20,0,0">
+                            <Image Name="imageButtonRetweet" Width="16">
+                                <Image.Style>
+                                    <Style>
+                                        <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/retweet.png" />
+                                        <Style.Triggers>
+                                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/retweetHover.png" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button ToolTip="Direct message" Name="buttonDM" Width="16" Height="16" Background="Transparent" BorderBrush="Transparent"  Margin="0,20,0,0" >
+                            <Image Name="imageButtonDM" Width="16">
+                                <Image.Style>
+                                    <Style>
+                                        <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/directMessage.png" />
+                                        <Style.Triggers>
+                                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/directMessageHover.png" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+
+                </WrapPanel>
+                <VirtualizingStackPanel Name="ItemTextViewPanel" Orientation="Horizontal" Width="225">
+                    <Image  HorizontalAlignment="Left" VerticalAlignment="Top"  Width="48" Height="48" Source="{Binding Path=Author.Avatar}" Margin="0,0,6,0" />
+                    <VirtualizingStackPanel Orientation="Vertical" Width="171">
+                        <TextBlock Text="{Binding Path=Author.Username}"  FontSize="10" FontStyle="Italic" />
+                        <controls:TextblockItem ItemText="{Binding Path=Text}" TextWrapping="Wrap" />
+                    </VirtualizingStackPanel>
+                </VirtualizingStackPanel>
+
+            </VirtualizingStackPanel>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

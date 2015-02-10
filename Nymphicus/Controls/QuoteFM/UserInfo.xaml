@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Nymphicus.Controls.QuoteFM.UserInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Nymphicus.Controls" 
+             d:DesignHeight="500" d:DesignWidth="335">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Image Source="{Binding Path=Avatar}" Height="40" Name="imageAvatarSelectedAccount" Stretch="Fill" Width="40" Margin="8,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <controls:InfoBox Margin="56,6,0,0" x:Name="infoBoxUsername" InfoTitle="{Binding Path=username}" InfoContent="{Binding Path=Fullname}" MouseDown="infoBoxUsername_MouseDown" ToolTip="Click to open profile on the QUOTE.fm homepage" Cursor="Hand" />
+            
+        </Grid>
+        <controls:InfoBox Grid.Row="1" x:Name="InfoBoxDescription"  InfoContent="{Binding Path=Bio}" InfoTitle="Bio"  />
+        <controls:InfoBox Grid.Row="2" x:Name="InfoBoxWebsite"  InfoContent="{Binding Path=Url}" InfoTitle="Website"  />
+        <controls:InfoBox Grid.Row="3" x:Name="InfoBoxLocation" InfoTitle="Location" InfoContent="{Binding Path=Location}" />
+        <WrapPanel Grid.Row="4" x:Name="Statistics1" Orientation="Horizontal" Margin="6,0" HorizontalAlignment="Center">
+            <controls:InfoBox x:Name="InfoBoxFollowers" InfoTitle="Followers" InfoContent="{Binding Path=FollowerCount}" Width="70" Cursor="Hand" Mouse.MouseDown="InfoBoxFollowers_MouseDown" />
+            <controls:InfoBox x:Name="InfoBoxFollowing" InfoTitle="Following" InfoContent="{Binding Path=FollowingCount}" Width="70"  Cursor="Hand" Mouse.MouseDown="InfoBoxFollowing_MouseDown"/>
+            <controls:InfoBox x:Name="InfoBoxTweets" InfoTitle="Recommendations" InfoContent="{Binding Path=NumberOfRecommendations}" Width="100" />
+            
+        </WrapPanel>
+        
+    </Grid>
+</UserControl>

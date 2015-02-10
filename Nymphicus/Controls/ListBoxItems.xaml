@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Nymphicus.Controls.ListBoxItems"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:controls="clr-namespace:Nymphicus.Controls" 
+             xmlns:dataTypes="clr-namespace:Nymphicus.Model" 
+        xmlns:local="clr-namespace:Nymphicus" xmlns:my="clr-namespace:Nymphicus.Converter">
+    <UserControl.Resources>
+        <my:ItemWidthConverter x:Key="ItemWidthConverter1" />
+        <my:ItemWidthConverter x:Key="ItemWidthConverter2" />
+        <DataTemplate DataType="{x:Type dataTypes:TwitterItem}">
+            <controls:ItemBoxTwitter x:Name="Item" HorizontalAlignment="Stretch" Margin="0,0,0,2" Width="{Binding ElementName=listView_Tweets, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=30}" DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type dataTypes:FacebookItem}">
+            <controls:ItemBoxFacebook x:Name="Item" HorizontalAlignment="Stretch" Margin="0,0,0,2" Width="{Binding ElementName=listView_Tweets, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=30}" DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type dataTypes:QuoteFmItem}">
+            <controls:ItemBoxQuoteFm x:Name="Item" HorizontalAlignment="Stretch" Margin="0,0,0,2" Width="{Binding ElementName=listView_Tweets, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=30}" DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type dataTypes:ApnItem}">
+            <controls:ItemBoxApn x:Name="Item" HorizontalAlignment="Stretch" Margin="0,0,0,2" Width="{Binding ElementName=listView_Tweets, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=30}" DataContext="{Binding}" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+
+        <ListBox x:Name="listView_Tweets" 
+                 Background="Transparent" 
+                 ScrollViewer.CanContentScroll="True" 
+                 VirtualizingStackPanel.IsVirtualizing="True" 
+                 IsSynchronizedWithCurrentItem="True" 
+                 VirtualizingStackPanel.VirtualizationMode="Recycling" 
+                 BorderBrush="Transparent" 
+                 BorderThickness="0" 
+                 SizeChanged="listView_Tweets_SizeChanged" 
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"   
+                 ScrollViewer.ScrollChanged="listView_Tweets_ScrollChanged"
+                 Loaded="listView_Tweets_Loaded"
+                 MouseEnter="listView_Tweets_MouseEnter" 
+                 MouseLeave="listView_Tweets_MouseLeave"
+                  >
+        </ListBox>
+    </Grid>
+</UserControl>

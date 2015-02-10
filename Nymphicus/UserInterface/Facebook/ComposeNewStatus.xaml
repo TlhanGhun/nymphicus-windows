@@ -1,0 +1,46 @@
+﻿<Window x:Class="Nymphicus.UserInterface.Facebook.ComposeNewStatus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        Title="Compose new status message" Height="220" Width="332"
+        Style="{StaticResource DefaultWindowStyle}" Icon="/Nymphicus;component/Images/16px/facebook.png"
+       xmlns:UserInterface="clr-namespace:Nymphicus.UserInterface"
+        xmlns:UserInterfaceFacebook="clr-namespace:Nymphicus.UserInterface.Facebook"
+        xmlns:controls="clr-namespace:Nymphicus.Controls" 
+        xmlns:local="clr-namespace:Nymphicus"
+        Loaded="Window_Loaded" Topmost="True">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static UserInterfaceFacebook:ComposeNewStatus.Cancel}" Executed="CancelExecuted"/>
+        <CommandBinding Command="{x:Static UserInterfaceFacebook:ComposeNewStatus.SelectTextField}" Executed="SelectTextFieldExecuted"/>
+        <CommandBinding Command="{x:Static UserInterfaceFacebook:ComposeNewStatus.SelectLinkField}" Executed="SelectLinkFieldExecuted"/>
+        <CommandBinding Command="{x:Static UserInterfaceFacebook:ComposeNewStatus.SelectAccount}" Executed="SelectAccountExecuted"/>
+        <CommandBinding Command="{x:Static UserInterfaceFacebook:ComposeNewStatus.Send}" Executed="SendExecuted"/>
+    </Window.CommandBindings>
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1" >
+                <Grid>
+                    <TextBox Margin="3,3,3,28"  Name="textBoxMessage" TextWrapping="Wrap" AcceptsReturn="True" ToolTip="Text of your status (ctrl + t)" />
+                    <TextBlock Name="textBlockLink" Text="http://www.example.com/" Foreground="LightGray" Margin="6,0,3,0" VerticalAlignment="Bottom" Height="23" />
+                    <TextBox Margin="3,0,3,3" Name="textBoxLink" AcceptsReturn="False" Height="23" VerticalAlignment="Bottom" Background="Transparent" ToolTip="Link for this status (optional) (ctrl + l)" TextChanged="textBoxLink_TextChanged">
+                    </TextBox>
+                    
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1"  Margin="5">
+                <Grid>
+                    <Button Content="Send status" ToolTip="Send (ctrl + enter)" Height="23" HorizontalAlignment="Right" Margin="0,0,4,2" Name="buttonSendStatus" VerticalAlignment="Bottom" Width="94" Click="buttonSendStatus_Click" IsEnabled="True" />
+                    <controls:ComboboxAccounts  ShowOnlyFacebook="True" Height="23" Margin="58,0,100,2" x:Name="comboBoxAccount" VerticalAlignment="Bottom" ToolTip="Select account (ctrl + o)"  />
+                    <Button Content="Cancel" ToolTip="Cancel and close window (escape)" Height="23" HorizontalAlignment="Left" Margin="4,0,0,2" Name="buttonCancel" VerticalAlignment="Bottom" Width="49" Click="buttonCancel_Click" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+
+</Window>

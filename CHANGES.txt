@@ -1,0 +1,508 @@
+2.3
+Nymphicus is Open Source now (simplified BSD license)
+Removed all license code checking
+Removed private app and setup signung certificate
+Removed all API keys (they are all to be added in API.ConnectionData
+
+2.2
+New: Option to start Nymphicus minimized
+New: Thumbnails of embedded images are now shown for Twitter
+New: Images are now uploaded to Twitter image service
+New: Compose: When an image is attached to a Tweet a small preview is shown on the upload button
+New: Compose: An added image to a tweet can now be removed again by clicking on the upload button with the right mouse button
+Thumbnail size of App.net images now bigger and the same as in Twitter
+Removed TweetMarker (commercial license needed) - I am aware this used to be a big plus in the past :(
+Removed all automatic scrolling code (which was the main source of temporarily freezing application)
+Updated about window to show the actually used libraries
+Added additionial optional debug output on Twitter timeline retrieval
+Removed TwitPic upload option
+Temporarily removed url unshortening for external services except Twitters own one
+Switched to .NET 4.5 (faster)
+Fix: Different compose buttons are now only shown if Twitter/Facebook/Apn account exists
+Fix: Possible empty Views on parsing problems of Tweets - now they are simply skipped
+Fix: when following a new user the user info is updated
+Fix: the boarder around items did not fit into window on Windows 8
+Fix: Now the counter of characters left is right again as it is aware of the Twitter url shortening rules now
+
+2.1.1
+Setup and Nymphicus are now digitally signed
+Fix: Mentions have been put in personal stream when using streaming in App.net
+Fix: If App.net user fails (e. g. internet connection lost) it is now automatically restarted
+Fix: Some possible crashes should be gone now. Let me know on any still open issues
+
+2.1
+App.net:
+ Item retrieval is now done using the user streaming API
+ Adding a link using MarkDown is now parsed and used as link entity
+ Link entities are now shown correctly
+ MarkDown links can be added using an own dialog
+ Images in App.net posts are now shown as thumbnail (hover with mouse over it to see full image)
+ Adding an image which is stored using file API added
+ Repost with different account added (context menu)
+ Star with different account added (context menu)
+ Quoted repost added (content menu)
+ Account colors now being saved and displayed
+ Exchanged Alpha log to new App.net logo
+ Fix: tooltip of #adn reply button had been Like (guess where I copied that part from :))
+ Fix: private messages did not display text in all cases
+ Fix: users with many following / followers were not always shown correctly with the (un)follow button
+Twitter:
+ Saved search result loading had been broken
+Google Reader:
+ Removed at all
+General:
+ Quick filters rewritten from scratch - now a dropdown menu (and also available for App.net)
+ Account colors are now the border of the full item instead of the avatar background
+ Removed (to) colorful on app adding preferences pane
+ Much code refactoring
+ 
+2.0.2
+! With the official release of 2.0.2 older versions integration of App.net stop working
+! Your App.net accounts will need to be added again as Nymphicus now uses the File API needs to extend the permissions
+TwitPic image upload reenabled for Twitter
+App.net image upload using the File API added
+Reverted back some TweetMarker code about getting the to be scrolled to item to old but better code
+If verification of an access token fails with App.net a new authorization window will be shown automatically
+Update underlying AppNet.net library to the current version
+Timestamps of App.net posts are now in the correct local timezone
+Timestamps of tweets are now in the correct local timezone
+Removed unshort.me from ADN and Facebook (had been there accidentially - removed it from Twitter a while back already)
+Checking if App.net token has the files scope - if not a new authorization is initiated
+Fixed App.net license code checking
+Fixed a bug Nymphicus not starting when a non-Twitter-account could not be authorized
+Removed the reenable account window which only worked with Twitter accounts anyway
+Removed quite some old wording (only speaking about Twitter when any service was meant)
+Twitter conversation window now without transparent background
+Empty retweets (deleted original tweets) are not shown anymore
+
+2.0.1
+Updated underlying TweetSharp library to 2.3 final version for API 1.1
+TweetMarker is back (both storing and receiving)
+The dancing Nymphicus bug should be fixed (continous scrolling between two items)
+Twitter should now (again) work with Proxies (no test envirnoment here - please give me feedback)
+App.net retrival of My Stream did not update properly
+Snarl notifications for App.net now not flooding the screen on startup anymore
+As TweetSharp 2.3 final fixed an error in list items retrieval I have removed the workaround for that
+Fix: possible crash on App.net retrieval
+Fix: possible crash on scroll to item
+
+2.0
+!!! IMPORTANT: this is not what I would normally call a final release - but Twitter API 1.1 - you know...?
+!!! If your Nymphicus crashes directly on start please see the Nymphicus FAQ at http://www.nymphicusapp.com/faq/ to reset all settings
+Twitter API 1.1 is now used in all requests
+To achieve Twitter API 1.1 compliance the underlying library has changed from Twitterizer (which is now discontinued) to TweetSharp
+ o  because of this every single API call to Twitter has been _completely rewritten_ and I didn't have the time to test it as much as I would like
+ !! TweetMarker is currently disabled as I need to rewrite that code too :(
+ !! Image upload is currently disabled as I need to rewrite that code :(
+ !! Streaming is currently disabled as I need to rewrite that code (instead polling is used for now) :(
+ o  keep scroll position is also disabled currently
+Due to Twitter API 1.1 Display Requirments:
+ !! no more mixed Views (Twitter and non-Twitter items) :(
+ !! no more send to Pocket, Instapaper and so on :(          
+ o  author always full name and username always with @
+ o  created date string if more than 24 hours ago (like Feb 7 instead of x days ago)
+ o  clicking on the creating date opens it on the Twitter homepage
+App.net posts which are machine only and/or with an empty text and/or are deleted are no longer shown
+Messages are only shown if they are private messages (Patter will get added later on)
+Copy text to clipboard now works with App.net posts
+Fix: replying to an App.net post in conversation view crash
+Fix: it was not possible to get autocompletion on two directly following hashtags
+
+!! Expect quite some 2.0.x releases in the near future for bug fixes and reenabling curretnly disabled functions. 
+
+In general: thank you Twitter for loving us developers - not...
+
+2.0b9
+Private messages added to App.net
+ o receiving and sending (see new icon on avatar overlay)
+ o get full conversation
+ o Snarl notification including own class
+ o View integration
+Interface refinements (still work in progress)
+Stream Marker optimizations (still not perfect so)
+Fix: sometimes extremly slow startup (forgotten debug code...)
+Fix: Beta was not working on Windows XP (believe it or nor: it was the icon...)
+
+2.0b8
+App.net Stream Markers (both storing and receiving)
+Live update of scroll position for App.net stream markers added (will be extented to TweetMarker soon)
+ Hard to test as long as Nymphiucs is the only client having this feature already - fixes may come later
+App.net starring und reposting on already reposted posts now works as expected 
+Tweet Markers are now an own background thread which should speed up the user interface quite a lot
+Stream and Tweet Marker positions will now be better scrolled to (work in progress)
+Started changing the used icon set (work in progress)
+Added App.net private messages code already by guessing how the API will be like to be have a faster rollout when they are available
+Internal image upload interface refactored in order to use it with anything else than Twitter
+When replying to a post on App.net the receiving account is now used automatically
+img.ly photo upload added for App.net - but not working right now - next beta hopefully
+Flattr icon and code added - but not completed and activated right now
+Fix: TweetMarker sometimes remembered the wrong id (but stored the right one)
+Fix: possible crash on Views loading of older 1.4 settings
+
+2.0b7
+Snarl notifications are now added to App.net including repost, star and reply action menu
+Facebook images are now displayed much smaller
+Client name on Facebook and App.net now has context menu to create filter (like Twitter display already included)
+Some small redesigns on QUOTE.fm, Facebook and Google Reader items (to be continued)
+Major Fix: Facebook had been broken due to API changes of Facebook
+
+2.0b6
+User info window added for App.net users (click on username name in item)
+ please report speed issues in this window if they apply
+Themes extended but still unfinished (no user interaction right now)
+Main windows close and minimize buttons now images, maximize button added
+Cursor on top area of main window now shows that you can move the window there (was always possible but you needed to know it)
+Fix: Number of items fetched in past saving always reverted back to 100 (max. was 100. Now max is 3.000)
+
+2.0b5
+Mentions implemented for App.net including enabling/disabling them in Views
+ For those new to Nymphicus: open preferences, select Views and then your view and check the checkbox next to mentions to make them visible
+Clicking on hashtags and username in App.net posts texts now open the App.net homepage for those
+Number of posts in past is now also used by App.net (and renamed from "Tweets in past")
+Number of posts in past defaults now to 200
+Number of posts to be displayed at once now defaults to 10.000 (need to have a look at RAM usage here)
+Default font size in (upcoming but unfinished) themes now 12px
+Fix: possible crash item filtering with App.net (due to possible posts witout any text)
+
+2.0b4
+Fix: Replying to an App.net post now only add @username to text filed (instead of fullname)
+Filters can now be regular expressions
+Filters can now be applied on the username of the retweeting user
+Filter editing now only in edit window but not in the (only partly) working Preferences window
+Fix: Filter disabling sometimes caused doubling formerly filtered items
+
+2.0b3
+Added conversation view to App.net (see the conversation icon at the items)
+Fixed beta auto update notification window
+
+2.0b2
+Added simple close and minimize buttons
+Removed the deprecated old mark as read button
+
+2.0b1
+App.net added
+Complete redesign - bye bye rounded corners
+Twitter Conversations are now also available on search result entries
+Replying to a retweet now replies to the original tweet
+TweetMarker scroll position is changed in the way that it scrolls to the oldest unread (and not the TweetMarker one itself) - feels better in this way
+Font size is now configurable
+Account color changes are now shown immediate in the main window on saving
+Account colors can now be disabled from display
+Fixed a possible crash on account removal
+Fixed possible crashes on item retrieval
+
+1.4.4
+Context menu of hashtag now has has an entry to open hashtag in search window (same as if the hashtag is clicked)
+Context menu of hashtag now has an entry to directly create and apply a filter for this hashtag in the current View (sometimes known as Mute in other clients)
+Context menu of client name now has has an entry to open homepage of this client (same as if the name is clicked)
+Context menu of client has an entry to directly create and apply a filter for this client in the current View (sometimes known as Mute in other clients)
+The option to let the topmost item stay in window now is optional (activated by default)
+Fix: clicking on a hashtag again shows the search for that hashtag (was broken with 1.4.3)
+
+1.4.3
+Better scroll behaviour: if new items are received the current topmost shown item will never been scrolled out of sight (it will go some steps down but not out of sight anymore). 
+ - this also means the scrolled to Tweet Marker position now stays visible
+Read It Later renamed to Pocket
+All settings are now saved every 90 seconds to be sure changes won't be lost when Nymphicus crashes
+All settings are now saved if the preferences window is closed regardless if done via Save button or by the window close button
+Fix: Accounts are now saved more often to make sure they are available on next restart in all possible cases
+Fix: Possible crash on new Twitter item retrieval
+Fix: Missing Snarl notifications classes on first start
+Fix: Possible crash on long running instances (as well es edited/delete tweet) related to the maximum number of concurrent displayed items
+Fix: Crashes on tweet sending will now be catched. If you encounter an error message please send it to me for further investigation
+Fix: Notification of new likes on empty text Facebook items now shown correctly 
+Fix: New items icon badge & window title now more reliable
+Fix: If some invalid data is send through streaming interface Nymphicus does not crash anymore
+Fix: Clicking the retweet button in an UserInfo window recent item crashed (you wouldn't believe how much code needed to be changed for that fix ;))
+Fix: In some rares cases a tweet was shown as being retweeted where it wasn't and displayed some random text
+
+1.4.2
+Scrolling to Tweet Marker position when just living the window (and not changing the View) removed
+Tooltip of username in a tweet item box now shows username and fullname
+Main window and icon (only Vista and above) now show the new items count if window is not in focus / activated 
+Link to docmentation in first start wizrd now visible
+Fix: Saving proxy settings in First Start Wizard was not reliable
+Fix: Searches and list results have not always been filtered as expected on initial startup fetch
+Fix: Possible crash when tweet is deleted
+
+1.4.1
+Tweets are now fetched 100 in the past on startup (has been 30 before). This value can be changed in the preferences (but 100 is the maximum). Maybe the old default 30 is still saved for your installation so have a look at the preferences.
+Note: Fething more items will of course increase the ressources Nymphicus is using
+Tweet Marker is now also saved every time when the main window loses focus (if another window - even another Nymphicus one - is opened. This is for example also true if you click a link in a tweet)
+Tweet Marker can now be turned off (it's activated by default
+Some smaller fixes
+
+1.4
+Tweet Marker now supported for both receiving and storing current read state (syncs last read items with other clients like e. g. Tweetbot on the iPhone) - see http://tweetmarker.net/
+Added new account type: QUOTE.fm (see http://quote.fm/)
+ - the APi is in early development by them so for now only reading (no write access, no authentication)
+ - get your own recommendations as well as the ones of people you follow (like timeline)
+ - subscribe to categories
+Full favorites supports: own type in Views, filterable and own fetch algorithm 
+Tweets can now be unfaved
+Facebook Snarl notifications for comments and likes are now separated in four classes
+ - comment on an item you also commented on or liked
+ - comment on an item you neither commented on or liked
+ - new likes on an item you neither commented on or liked
+ - new likes on an item you neither commented on or liked
+So you can disable notifications in Snarl you don't want to receive in more detail
+In Facebook all comments are now fetched upon status retrieval
+As all accounts can now be streaming (see below) the Twitter API rate limits are less important and the update intervall is now 90 seconds (has been four minutes before)
+Fix: no more user interface flickering on item faving
+Fix: purchase button in preferences window did not work 100% as expected...
+Fix: now more than two Twitter accounts can use the streaming API at once
+
+
+1.3.1
+Mark as read state per Twitter item possible
+User icons are now cached on hard disk for better performance (Twitter only for now)
+Conversations are now shown with an own icon and be opened by one click
+Fix: Mentions having been received as none-streaming were not been filtered by filter bar on top
+Fix: Some more links unshortened on retweets
+
+1.3
+Note: the planned interface changes are scheduled for 1.4
+Google Reader as third account type added
+ - retrieval of unread items
+ - full integration in the Views-concept
+ - send article to Facebook/Twitter (depending on your other accounts)
+ - mark article as read (removes it also from list)
+ --- there will be a more feature rich implementation when my work on Meneré (http://www.menere.de/ has reached final stages - internally current state is called GREasy by me)
+Update Facebook integration (newer version of library)
+Facebook item display (especially images and captions) massively improved
+You can now add a link to a Facebook status which is interpreted by Facebook as link (thumnbail and description added)
+Image thumbnails on mouse over are now bigger (most of the time) in tweets
+Lockerz thumbnails added
+When opening new tweet window the textbox is selected and cursor waits for you start typing (...again, lost this when added auto complete)
+As the gerneral unshortening service unshort.me has been cancelled I reenabled my own unshortening implemenations. 
+ Pro: much(!) faster, I know works :)
+ Contra: less services included (for now - let me know which you miss most)
+  Currently: t.co, bit.ly, is.gd, and tinyurl
+
+Keyboard Shortcuts:
+o Main window
+Ctrl + t - open compose new tweet window
+Ctrl + n - open compose new Facebook status window
+Ctrl + s - open Twitter search window
+Ctrl + r - Refresh all accoounts
+Ctrl + f - select the filter textbox
+Ctrl + o - select the view combobox
+
+o Compose new tweet window
+Ctrl + s - shorten all links
+Ctrl + i - add an image
+Ctrl + o - select the account combobox
+Escape   - close window
+Ctrl + enter in textbox sends the tweet 
+
+o Compose new Facebook status window
+Ctrl + t - select message textbox
+Ctrl + l - select link textbox
+Ctrl + o - select the account combobox
+Escape   - close window
+Ctrl + enter in textbox sends the message 
+
+1.2.1
+When composing a Tweet an autocomplete for Twitter username and hashtags is now included (UserVoice 2364163)
+When notification via streaming about deletion of a status by another user is received this status is removed from Nymphicus
+You can delete now your own tweets
+You can now edit your own tweets (which in fact deletes the old one and posts a new one)
+Minimize to tray option added (UserVoice 1091051)
+bit.ly url shortening added (login needed - former bit.ly Pro)
+New notications (if Snarl is used):
+ - new follower (UserVoice 2364157)
+ - item favorited
+Snarl / notifications part in the preferences as many user miss that feature till now
+UserInfo dialog now has compose mention and compose dm buttons (UserVoice 2427292)
+CPU consumption now really dramatically reduced in all cases
+RAM consumption reduced (more to come in next releases)
+Setup info text if .NET 4.0 is not installed now much more friendly
+
+1.2
+Facebook integration added
+If Snarl is started after Nymphicus (or restarted during run time) app and classes are now (re)registered
+Filter now can be applied on the sending application/client name (both Twitter and Facebook)
+Deactivating a filter in a view definition now immediately brings back items which were hidden because of this filter
+Buttons overlay for user image now with animation. This makes the delay until the main window is responding on mouse on startup much smaller
+Pressing the fav button on a tweet now a background thread - user interface stays accesible
+Account selector (e. g. in compose or search window) now shows the account color
+On various points the fullname instead of only username is shown (as Facebook username often is only a number)
+Replying on item with multiple Twitter accounts being mentioned: done as reply all with the additional username selected to easily remove them by just starting to write 
+Conversation view: see the full conversation on replies and direct messages by pressing the small message type icon
+Speed and performance optimizations
+Snarl notifications on inital fetch now reliable not being displayed (no more screen flooding)
+Smooth scrolling now disabled - now changing the current view is more or less instant and the filter box is back to filter as you type (you don't need hit enter)
+  This is a massive (!) performance boost but anyway if you liked to old smooth scrolling you can reenable it in the preferences
+Compose window opens now at the same location as the main window
+Fix: Recent tweets in UserInfo window was unreliable
+Fix: CPU usage dramatically reduced
+
+1.1.4                              
+Shortened URL expanding now completely done by http://unshort.me/ to keep the pace with all the new services getting released and changed.
+Some more logging points added
+Fix: Possible crash on UserInfo windows on loading
+Fix: Twitter's t.co-auto-shortening broke Twitlonger-auto-expanding feature. Added handler to work around this issue
+
+1.1.3
+t.co links (those shortened by Twitter itself without asking) are now expaneded automatically. Seems as if the Twitter API is currently not 100% reliable in expanding all of them so (mostly retweets seem to fail in the moment)
+Images from the new Twitter image upload service are now shown as thumbnail when hovering with mouse over the links the same way as other image services also have already been before
+Streaming interface is now automatically activated for the first two added accounts
+In the user info dialog clicking on the username now opens the profile of that user on twitter.com in your browser
+Fix: Added error handling if clicking on any link or button which shall open a new browser window (log an error instead of possible crash) 
+Fix: User info window recent tweets code enhanced
+
+1.1.2
+Fix: Stability bugfix release about possible crash on new item retrieval
+Fix: Copy to clipboard possible crash fixed
+
+1.1.1
+When opening a user info window the recent tweets are now loaded in background thread so window is available faster now 
+User blocking and reporting as spammer added to context menu of a user
+ - for now items stay displayed, in 1.2 I plan to remove them from all views then
+Retweeting is now a background process (user interface does not freeze anymore) and if successfull a Snarl notification is shown
+OAuth PIN entry part made more visible (on top and orange background)
+User info dialog of users coming from a search query (either saved search of manuell search) are now shown with complete user info and not only basic infos
+Buttons on main window now all have a tooltip
+First start wizard create view window now prefilled with title and all options selected
+Fix: Possible crash on adding user to list in show user window
+Fix: Retweeting an already retweeted item now works as expected
+Fix: Display of own retweets was buggy and did not show retweet icon as expected 
+Fix: Retweets in lists are now shown without the RT-prefix in notification
+Fix: Link, Hashtag and @username parser was confused by newlines in text
+
+1.1
+Streaming interface error handling greatly improved
+Read It Later, Instapaper, del.icio.us and pinboard.in added to context menu of links
+Twitlonger text shortening and auto expanding added (see http://www.twitlonger.com/)
+Generally many new context menus
+Sending in compose window not triggered by presseing Return but Ctrl+Return now (to write multiline tweets)
+Update available window now more polished
+Startup account verification now background thread -> windows stays accessible and its faster
+Search in search window now a background thread -> window stays usable during search
+Create view window of First Start Wizard greatly enhanced and now used also when adding a view in preferences
+ + select all
+ + invert selection
+ + select all of one kind at once
+Update check is now a background thread and does not slow down startup anymore
+Links in InfoBoxes (like the homepage of user in UserInfo dialog) are clickable now
+New list creation window nicer design, name textbox max length 25 chars (limit from Twitter) and if an error occures the info about is shown in a message box
+Number of items in the main window is now limited to save RAM - for now to 500 items in maximum (if more the oldest are not shown)
+Compose window now has TopMost-flag to be (if possible) in front of all windows currently open
+Fix: Setup did not create start menu entries and first start was done on wrong user account if using non privileged account on Vista/7
+Fix: Edit lists window did not show correct list of lists directly after opening
+Fix: Filter were not applied on items directly loaded on startup but only for updates
+Fix: Retweets done using the actions menu in a Snarl notification were not shown (updated) in list window
+Some more smaller bugfixes
+
+1.0
+Last used view is remembered and restored on new start
+"No license available" window now with link to purchase homepage and a little more text
+Some more intial output to logfile
+Fix: Another problem with retweets in streaming fixed
+Fix: Preferences layout was weird when windows has been resized on filter tab
+Fix: Error logging now really only to file and not also to Snarl
+Fix: Snarl list notificatins were sent with wrong class name
+Fix: Clicking "Save search to account" while no search key was entered caused a crash.
+Fix: Removed debugging code which started online license download on every new start instead of using the memorized one
+Fix: Inital timeline retrieval was likely to fail depending on internet speed
+
+0.9.1
+Licensing added
+ - at beta testers: Nymphicus should give you a license automatically (yes, it's a thank you to all of you)
+   If not send me an email
+Quick filter on main window redesigned to be more clear about current selection
+Quick filter on main window now available for timeline and retweets 
+Tokens are now saved encrypted on the harddisk (old ones from <= 0.9 are migrated)
+Design of list management window extended
+Remove list button disabled now in list mangement window if not own list as function not available in Twitterizer right now
+bit.ly shortener disabled for now as credentials needed in their new API
+About section in preferences added
+Some cleanup on account preferences
+Streaming now also enabled for mentions (meaning correct class and not treated as normal status)
+Errors are now saved to a logfile instead of being a Snarl notification
+Fix: Snarl notifications for direct messages were missing if streaming is used
+Fix: Own retweets from streaming were not shown correctly (missing retweet symbol)
+Fix: New filters were added double when created
+Fix: Edit filter button had no function at all
+
+0.9
+First-Start-Wizard added (guided creation of first account(s) and first view(s))
+OAuth window in general look and feel
+Compose window some design enhancements
+Streaming support updated and should now work as expected (DMs and Tweets - no lists or searches for now)
+Removed edit and move up/down filter buttons in view creation
+Fix: Possible crash on new item retrieval
+Fix: Possible crash on Nymphiucs shutdown
+
+0.8.3
+All communications with Twitter API now with SSL
+If an account can't be verified on startup you get now a startup window to try it again, change proxy settings or delete that account
+Context menu on author to directly add him/her to a new filter (block the display in current view))
+Snarl actions menu to directly reply, dm, retweet or fav an item (needs Snarl 2.4.1)
+Geo location now can be opened in OpenStreetMap as alternative to Google Maps
+Setup now checks now if .NET 4.0 Full is installed (and not only the client profile)
+Geo locations with a street adress embedded are now opened in more detail
+Fix: Possible crash of show user window on very few icons of users (@muserine in my case) - no special window icon for now :()
+Fix: Retweeting an already retweeted tweet now works as expected
+Fix: Newly created filter were not visible in show user dialog
+Fix: Switch button from text to user search didn't stay in place on resizing the window
+Fix: Preference for auto expending links was not taken in account but always expended
+Fix: User list (search results) checkbox now in the top right corner
+Fix: Possible crash on authorization dialog if not connected to the internet
+Fix: Proxy settings had been switched off on every restart
+
+0.8.2
+Search windows now has a button to switch to a user search instead
+The main windows now shows also the own direct messages including a linked receipient information
+UserInfo-dialog now includes a button to add the shown user to a list
+UserInfo-dialog also now is able to create a new list and add the current user
+Filter now can be added out of Preferences -> Filter (formerly only from Views)
+When moving the mouse over the username in an item the cursor is now the hand cursor so the user can identify that he can click on it
+ +  same for the icon about geo location
+Title and icon of show user window now use the data of the shown user
+General combobox for account selection added which shows the avatar icon next to the login 
+Update information windows now has linebreaks for much better readability
+Fix: New Twitter homepage layout caused some script error messages in authorization dialog window
+Fix: "save search to account" - new search was not selectable in views without restart
+Fix: When adding a new account it is now shown immediately in the list of accounts in the views section
+Fix: Crash in filter creation removed
+
+
+0.8.1
+Many performance improvements in the list window
+Clicking a hashtag now trims special characters before search is opened
+Position and size of main window is now memorized
+Image uploading in compose window now background process with progress indicator
+Send button in compose window now tells what you will do (e.g. "Send DM")
+When composing a reply the cursor is after the @username so you can start typing immediately       
+UserInfo dialog now shows friendships for all accounts
+UserInfo dialog is now able to follow/unfollow per account                   
+
+0.8.0.3
+
+0.8.0.2
+
+0.8.0.1
+
+0.8
+
+0.3a7 (planned last 0.3)
+Online update checker
+Choose last selected view on new start of app
+
+
+0.3a6
+Selecting an item in the list now not hides text anymore
+Streaming API added for timeline (still experimental)
+Migrate user preferences on updated version number added
+
+0.3a5
+Filtering of text and username
+Reworked the itemtemplate for tweets (less complexity -> more speed)
+Fixed a bug that sending tweets did not work if you have had "only" one account configured
+Auto refresh of time ago info now working without complete refresh of item list (-> performance!)
+
+0.3a4
+First version with Changelog activ
+Return sends tweet in compose window
+Stabilization enhancements on internet connectivy lose

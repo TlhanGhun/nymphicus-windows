@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Nymphicus.Controls.ListBoxPersons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="296" d:DesignWidth="300"
+                       xmlns:controls="clr-namespace:Nymphicus.Controls" 
+        xmlns:local="clr-namespace:Nymphicus" xmlns:my="clr-namespace:Nymphicus.Converter">
+    <UserControl.Resources>
+        <my:ItemWidthConverter x:Key="ItemWidthConverter1" />
+    </UserControl.Resources>
+    <Grid>
+        <ListBox Name="listBox_Persons" Background="Transparent"  VirtualizingStackPanel.IsVirtualizing="True" ScrollViewer.CanContentScroll="True" VirtualizingStackPanel.VirtualizationMode="Recycling" BorderBrush="Transparent" BorderThickness="0"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Multiple">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="ListBoxPerson">
+                    <Grid>
+                        <controls:UserListItem x:Name="Person" HorizontalAlignment="Stretch" Width="{Binding ElementName=listBox_Persons, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=23}" />
+                        <CheckBox HorizontalAlignment="Right"
+                            x:Name="checkboxSelectedPerson"
+                            Margin="0,4,4,0"
+                            
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}">
+                            <CheckBox.Style>
+                                <Style TargetType="{x:Type CheckBox}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=ShowCheckboxForThisUserInList}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+    </Grid>
+</UserControl>

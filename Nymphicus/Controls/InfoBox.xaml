@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Nymphicus.Controls.InfoBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="200"
+             xmlns:themes="clr-namespace:Nymphicus.Themes">
+    <UserControl.Resources>
+        <themes:Theme x:Key="Theme" />
+    </UserControl.Resources> 
+    <Grid Background="{Binding CurrentTheme.GeneralBackgroundColor, Source={StaticResource Theme}}">
+        <Border BorderBrush="{Binding CurrentTheme.GeneralBorderColor, Source={StaticResource Theme}}" BorderThickness="1" Background="{Binding CurrentTheme.GeneralBackgroundColor, Source={StaticResource Theme}}" Name="borderInfoBox"  VerticalAlignment="Top">
+            <Grid>
+                <TextBlock Name="textBlockTitle" TextWrapping="Wrap" Foreground="{Binding CurrentTheme.GeneralFontColor, Source={StaticResource Theme}}" Margin="4,4,4,4" FontSize="10" />
+                <TextBlock Name="textBlockContent" Height="Auto" Foreground="{Binding CurrentTheme.GeneralFontColor, Source={StaticResource Theme}}" TextWrapping="Wrap" Margin="4,16,4,4" />
+                <TextBox Name="textBoxContent" Height="Auto" Foreground="{Binding CurrentTheme.GeneralFontColor, Source={StaticResource Theme}}" TextWrapping="Wrap" FontSize="10" Margin="4,18,4,4" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,68 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Nymphicus.Controls" x:Class="Nymphicus.UserInterface.Apn.UserInfo"
+        xmlns:themes="clr-namespace:Nymphicus.Themes"
+        Title="Show App.net user info" Height="562.069" Width="754.023" Icon="/Nymphicus;component/Images/AppDotNet/alpha.png"
+        
+    >
+    <Window.Resources>
+        <themes:Theme x:Key="Theme" />
+    </Window.Resources>
+    <Grid Background="{Binding CurrentTheme.GeneralBackgroundColor, Source={StaticResource Theme}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="280px" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Border Name="borderAroundCoverArt" Grid.Row="0" VerticalAlignment="Top" Height="156">
+            <Image x:Name="imageCoverArt" Grid.Row="0" VerticalAlignment="Center" Source="{Binding Path=cover_image.url}" Stretch="UniformToFill" />
+            <!-- <Image x:Name="imageCoverArt" VerticalAlignment="Center" Source="C:\Users\WaltherS\Pictures\WoMoBlog\test.jpg" Stretch="UniformToFill" /> -->
+        </Border>
+        <Image x:Name="imageUserAvatar" Grid.Row="0" Source="{Binding Path=avatar_image.url}" Width="100" Height="100" Margin="44,131,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <VirtualizingStackPanel Name="stackpanelUsername" Orientation="Horizontal" Margin="149,160,10,0" Height="40" VerticalAlignment="Top">
+            <TextBlock Name="textblockUserUsername" Text="{Binding Path=username}" FontSize="30" Foreground="#333" VerticalAlignment="Bottom" />
+            <TextBlock Name="textblockUserName" Text="{Binding Path=name}" Margin="8,3,3,3" FontSize="14" Foreground="#888" VerticalAlignment="Bottom" />
+        </VirtualizingStackPanel>
+        <TextBlock Margin="149,205,10,0" Name="textblockUserBio" TextWrapping="Wrap" Text="{Binding Path=description.text}" FontSize="{Binding CurrentTheme.ItemBoxFontSizeContent, Source={StaticResource Theme}}" Foreground="#444" VerticalAlignment="Top" Height="65" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320px" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <VirtualizingStackPanel x:Name="stackpanelUserInfo" Orientation="Vertical" Grid.Column="0">
+                <VirtualizingStackPanel Name="staclpanelUserCounts" Orientation="Horizontal">
+                    <Controls:InfoBox InfoTitle="Posts" InfoContent="{Binding Path=counts.posts}" HorizontalAlignment="Center" Width="70" Margin="3" />
+                    <Controls:InfoBox InfoTitle="Following" InfoContent="{Binding Path=counts.following}" HorizontalAlignment="Center" Width="70" Margin="3"/>
+                    <Controls:InfoBox InfoTitle="Followers" InfoContent="{Binding Path=counts.followers}" HorizontalAlignment="Center" Width="70" Margin="3" />
+                    <Controls:InfoBox InfoTitle="Starred" InfoContent="{Binding Path=counts.stars}" HorizontalAlignment="Center" Width="70" Margin="3" />
+              </VirtualizingStackPanel>
+                <Grid x:Name="Friendships" Margin="3,0,15,6">
+                    <Border BorderBrush="{Binding CurrentTheme.GeneralBorderColor, Source={StaticResource Theme}}" BorderThickness="1" MinHeight="26" Padding="2,2,2,4">
+                        <Grid Name="GridFriendships">
+                            <Border Background="DarkGray">
+                                <TextBlock Name="textblockUpdatingUser" Text="Updating followings..." Foreground="White" TextAlignment="Center" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </VirtualizingStackPanel>
+            
+            <Grid Name="gridRecentPosts" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,0,4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+            <VirtualizingStackPanel x:Name="stackpanelRecentPosts" Grid.Row="0" Orientation="Horizontal" Margin="0">
+                <TextBlock x:Name="textblockHeaderRecentPosts" Text="Recent posts" Margin="0,0,20,0" FontSize="30" />
+                <Border Name="borderUpdatingRecentPosts" Background="DarkGray" Height="30" VerticalAlignment="Top" Margin="0,6">
+                    <TextBlock Text="Loading recent posts..." Foreground="White" TextAlignment="Left" Margin="6,6,6,6" />
+                </Border>
+                
+            </VirtualizingStackPanel>
+                <Controls:ListBoxItems Grid.Row="1" x:Name="listboxRecentPosts" Margin="4" ScrollViewer.HorizontalScrollBarVisibility="Auto" MinHeight="20" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

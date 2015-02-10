@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Nymphicus.Controls.Facebook.UserInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Nymphicus.Controls" 
+             d:DesignHeight="500" d:DesignWidth="335">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Image Source="{Binding Path=Avatar}" Height="40" Name="imageAvatarSelectedAccount" Stretch="Fill" Width="40" Margin="8,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <controls:InfoBox Margin="56,6,0,0" x:Name="infoBoxUsername" InfoTitle="{Binding Path=Username}" InfoContent="{Binding Path=FullName}" MouseDown="infoBoxUsername_MouseDown" ToolTip="Click to open profile on Twitter homepage" Cursor="Hand" />
+        </Grid>
+        <controls:InfoBox Grid.Row="1" x:Name="InfoBoxBio"  InfoContent="{Binding Path=Bio}" InfoTitle="Biography"  />
+        <controls:InfoBox Grid.Row="2" x:Name="InfoBoxWebsite"  InfoContent="{Binding Path=Website}" InfoTitle="Website"  />
+        <controls:InfoBox Grid.Row="3" x:Name="InfoBoxQuotes" InfoTitle="Quotes" InfoContent="{Binding Path=Quotes}" />
+
+       
+       
+    </Grid>
+</UserControl>

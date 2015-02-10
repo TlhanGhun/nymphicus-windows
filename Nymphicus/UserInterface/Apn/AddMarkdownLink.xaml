@@ -1,0 +1,19 @@
+﻿<Window x:Class="Nymphicus.UserInterface.Apn.AddMarkdownLink"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Insert MarkDown inline link" Height="300" Width="300" Opacity="0.9"
+        Topmost="True">
+    <Border Name="border_with_roundes_edges" Padding="6" Background="White">
+        <Grid Background="Transparent" Margin="5">
+            <StackPanel Name="stackpanel_insertlink" HorizontalAlignment="Stretch">
+                <TextBlock Name="textblock_url" Text="Link" FontSize="14" FontWeight="Bold"/>
+                <TextBox Name="textbox_url" Text="" Padding="3" />
+                <TextBlock Name="textblock_title" Text="Title" FontSize="14" FontWeight="Bold"/>
+                <TextBox Name="textbox_title" Text="" Padding="3" />
+            </StackPanel>
+            <Button Name="button_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="10,0,0,10.2" Width="119" Height="28" VerticalAlignment="Bottom" Click="button_cancel_Click" ToolTip="Cancel (ESC)"/>
+            <Button Name="button_insert" Content="Insert link" Margin="165,0,10,10.2" Click="button_insert_Click" ToolTip="Insert link now (ctrl - enter)" Height="28" VerticalAlignment="Bottom"/>
+
+        </Grid>
+    </Border>
+</Window>

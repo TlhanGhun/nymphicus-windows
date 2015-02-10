@@ -1,0 +1,32 @@
+﻿<Window x:Class="Nymphicus.UserInterface.GetOAuthorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add new Twitter account" Height="820" Width="930" Icon="/Nymphicus;component/Images/32px/internet.png"
+        
+        xmlns:my="clr-namespace:Nymphicus.Controls">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"   Grid.Row="0">
+            <Label Content="Please log into Twitter below and press the authorize button" Height="28" VerticalAlignment="Top" />
+        </Border>
+
+        <Border Background="Orange" Margin="2" BorderBrush="DarkGray" BorderThickness="1" Grid.Row="1" Visibility="Collapsed" Name="BorderPinEntry">
+            <VirtualizingStackPanel  Orientation="Horizontal" VerticalAlignment="Center">
+                <Image Height="42" Visibility="Hidden" HorizontalAlignment="Left" Margin="89,0,0,2" Name="imageGoNextArrow" Stretch="Fill" VerticalAlignment="Bottom" Width="47" Source="/Nymphicus;component/Images/32px/go-next.png" />
+                <Label Content="Please enter the shown PIN from Twitter:" Height="28" Margin="0,0,2,8" HorizontalAlignment="Left" Name="labelPleaseEnterPin" VerticalAlignment="Bottom" Width="227" Visibility="Hidden" HorizontalContentAlignment="Right" />
+                <TextBox Height="23" HorizontalAlignment="Left" Name="textBoxOauthPIN" Margin="0,0,5,10" VerticalAlignment="Bottom" Width="120" Visibility="Hidden" />
+                <Button Content="Finish" Height="23" HorizontalAlignment="Left" Margin="0,0,0,10" Name="buttonFinish" VerticalAlignment="Bottom" Width="75" Visibility="Hidden" Click="buttonFinish_Click" />
+            </VirtualizingStackPanel>
+        </Border>
+
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="2" Opacity="1">
+            <WebBrowser x:Name="webBrowser1" Opacity="1" />
+        </Border>
+
+    </Grid>
+</Window>

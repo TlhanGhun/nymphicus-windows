@@ -1,0 +1,36 @@
+﻿<Window x:Class="Nymphicus.UserInterface.QuoteFM.QuoteFM_AuthEasy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="QUOTE.fm - create account" Height="319" Width="356"
+        Loaded="Window_Loaded" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="318*" />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="0">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Grid.Row="0" Text="Username:" HorizontalAlignment="Right" />
+                <TextBox Name="textboxUsername" Grid.Column="1" Grid.Row="0" Text="" Height="22" VerticalAlignment="Top" Margin="3,2,3,0" Background="LightGoldenrodYellow" />
+                <Button Name="buttonCheckUsername" Click="buttonCheckUsername_Click" Content="Check username" Grid.Row="0" Grid.Column="1" Margin="0,24,2,0" Height="20" Width="120" HorizontalAlignment="Left" />
+                <Image Height="26" HorizontalAlignment="Left" Margin="12,12,0,0" Name="imageLogo" Stretch="Fill" VerticalAlignment="Top" Width="28" Source="/Nymphicus;component/Images/QuoteFm/QuoteFm.png" />
+            </Grid>
+        </Border>
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="1" Padding="4">
+            <Grid>
+                <TextBlock Name="textblockUserInfo" TextWrapping="Wrap" Text="Currently there is no authentication available with the QUOTE.fm API. So you can enter a username and if it is valid Nymphicus will dfetch all users this username is following and then pull from all those accounts the current recommendations. While not being technically optimal this gives us already great reading access to QUOTE.fm."/>
+            </Grid>
+        </Border>
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="2">
+                    <Grid>
+                        <Button Name="buttonAddAccount" Content="Add account" Grid.Row="2" Grid.Column="1" Height="20" Width="120" HorizontalAlignment="Right" IsEnabled="False" Click="buttonAddAccount_Click" />
+            </Grid>
+        </Border>
+    </Grid> 
+</Window>

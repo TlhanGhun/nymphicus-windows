@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Nymphicus.Controls.Apn.AutoCompleteTextboxApn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="300" >
+    <Grid Margin="0">
+        <TextBox  Name="textBoxContent" PreviewKeyDown="textBox1_KeyDown" TextChanged="textBox1_TextChanged" TextWrapping="Wrap" AcceptsReturn="True" Padding="3" />
+        <Popup  Name="popupMatchingUsernames" StaysOpen="False" PlacementTarget="{Binding ElementName=textBoxContent}" Placement="Bottom" HorizontalOffset="-6" PopupAnimation="Slide" AllowsTransparency="True">
+            <ListBox HorizontalAlignment="Left"  Name="listBoxMatchingUsernames" Width="138"  SelectionChanged="listBox1_SelectionChanged" VerticalAlignment="Top" PreviewMouseLeftButtonDown="listBox1_MouseDown" PreviewMouseLeftButtonUp="listBox1_PreviewMouseLeftButtonUp" PreviewKeyDown="listBox1_PreviewKeyDown" />
+        </Popup>
+    </Grid>
+</UserControl>

@@ -1,0 +1,904 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB5C74F5-06E9-4ADF-A965-B0B0973F2D40}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nymphicus</RootNamespace>
+    <AssemblyName>Nymphicus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <StartupObject>Nymphicus.App</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Nymphicus_icon_512_freigestellt.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F5ED646021DDC6CD241D514B5227523DBCDDD20D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>codesign.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AppNetDotNet, Version=1.8.2.0, Culture=neutral, PublicKeyToken=c5ee942792c9b1c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AppNet.NET.1.8.2.1\lib\net40-full\AppNetDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomColorPicker, Version=1.0.4021.30413, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\CustomColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>API\HtmlAgility\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="QuoteSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\QuoteSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TweetSharp">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit.Extended, Version=1.4.0.2, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibraries\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="API\Facebook\AuthorizeNewFacebookAccount.xaml.cs">
+      <DependentUpon>AuthorizeNewFacebookAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="API\Facebook\OAuthUpdater.xaml.cs">
+      <DependentUpon>OAuthUpdater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="API\HttpCommunications.cs" />
+    <Compile Include="API\ImageServices\IImageService.cs" />
+    <Compile Include="API\ImageServices\ImageResponse.cs" />
+    <Compile Include="API\ImageServices\imgLy.cs" />
+    <Compile Include="API\ImageServices\Instagram.cs" />
+    <Compile Include="API\ImageServices\Plixi.cs" />
+    <Compile Include="API\ImageServices\TwitPic.cs" />
+    <Compile Include="API\ImageServices\yfrog.cs" />
+    <Compile Include="API\Tweetmarker.cs" />
+    <Compile Include="API\UrlShortener\UnshortMe.cs" />
+    <Compile Include="Controls\AppDotNet\ItemBoxApn.xaml.cs">
+      <DependentUpon>ItemBoxApn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AppDotNet\ListBoxUsers.xaml.cs">
+      <DependentUpon>ListBoxUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AppDotNet\TextblockApnItem.cs" />
+    <Compile Include="Controls\AppDotNet\UserListItem.xaml.cs">
+      <DependentUpon>UserListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AutoCompleteTextboxForTwitterUsernames.xaml.cs">
+      <DependentUpon>AutoCompleteTextboxForTwitterUsernames.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BorderStandard.xaml.cs">
+      <DependentUpon>BorderStandard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Facebook\CommentBoxFacebook.xaml.cs">
+      <DependentUpon>CommentBoxFacebook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Facebook\ItemBoxFacebook.xaml.cs">
+      <DependentUpon>ItemBoxFacebook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Facebook\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IStoreListItem.xaml.cs">
+      <DependentUpon>IStoreListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBoxAccounts.xaml.cs">
+      <DependentUpon>ListBoxAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NonAutoScrollListbox.xaml.cs">
+      <DependentUpon>NonAutoScrollListbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProxySettings.xaml.cs">
+      <DependentUpon>ProxySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="API\UrlShortener\BitLy.cs" />
+    <Compile Include="API\UrlShortener\CommonMethods.cs" />
+    <Compile Include="API\UrlShortener\googl.cs" />
+    <Compile Include="API\UrlShortener\ILinkShortener.cs" />
+    <Compile Include="API\UrlShortener\IsGd.cs" />
+    <Compile Include="API\UrlShortener\TinyUrl.cs" />
+    <Compile Include="Controls\ComboboxAccounts.xaml.cs">
+      <DependentUpon>ComboboxAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComboBoxLists.xaml.cs">
+      <DependentUpon>ComboBoxLists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditableCheckbox.xaml.cs">
+      <DependentUpon>EditableCheckbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InfoBox.xaml.cs">
+      <DependentUpon>InfoBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemBoxTwitter.xaml.cs">
+      <DependentUpon>ItemBoxTwitter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBoxItems.xaml.cs">
+      <DependentUpon>ListBoxItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBoxPersons.xaml.cs">
+      <DependentUpon>ListBoxPersons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuoteFM\ItemBoxQuoteFm.xaml.cs">
+      <DependentUpon>ItemBoxQuoteFm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuoteFM\ListBoxUsers.xaml.cs">
+      <DependentUpon>ListBoxUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuoteFM\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuoteFM\UserListItem.xaml.cs">
+      <DependentUpon>UserListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchTextbox.xaml.cs">
+      <DependentUpon>SearchTextbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserListItem.xaml.cs">
+      <DependentUpon>UserListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\ItemWidthConverter.cs" />
+    <Compile Include="Converter\prettyVersion.cs" />
+    <Compile Include="Converter\ThumbnailConverter.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Model\AccountAppDotNet.cs" />
+    <Compile Include="Model\AccountFacebook.cs" />
+    <Compile Include="Model\AccountQuoteFM.cs" />
+    <Compile Include="Model\ApnItem.cs" />
+    <Compile Include="Model\FacebookApplication.cs" />
+    <Compile Include="Model\FacebookComment.cs" />
+    <Compile Include="Model\FacebookItem.cs" />
+    <Compile Include="Model\FacebookPicture.cs" />
+    <Compile Include="Model\FacebookUser.cs" />
+    <Compile Include="Model\Filter.cs" />
+    <Compile Include="Model\Geo.cs" />
+    <Compile Include="Model\IAccount.cs" />
+    <Compile Include="Model\IItem.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\QuoteFmCategories.cs" />
+    <Compile Include="Model\QuoteFmComment.cs" />
+    <Compile Include="Model\QuoteFmItem.cs" />
+    <Compile Include="Model\QuoteFmSource.cs" />
+    <Compile Include="Model\QuoteFmUser.cs" />
+    <Compile Include="Model\SubscribableItemsCollection.cs" />
+    <Compile Include="Model\TextBlockFacebookText.cs" />
+    <Compile Include="Model\TextSubTypes.cs" />
+    <Compile Include="Model\ThreadSaveObservableCollection.cs" />
+    <Compile Include="Model\ViewEntry.cs" />
+    <Compile Include="DebugMessage.cs" />
+    <Compile Include="ExternalLibraries\Notifications\Snarl.cs" />
+    <Compile Include="ExternalServices\Delicious.cs" />
+    <Compile Include="ExternalServices\Instapaper.cs" />
+    <Compile Include="ExternalServices\IStore.cs" />
+    <Compile Include="ExternalServices\Pinboard.cs" />
+    <Compile Include="ExternalServices\Pocket.cs" />
+    <Compile Include="ExternalServices\Twitlonger.cs" />
+    <Compile Include="GeneralFunctions.cs" />
+    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UserInterface\Apn\AddMarkdownLink.xaml.cs">
+      <DependentUpon>AddMarkdownLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Apn\AutoCompleteTextboxApn.xaml.cs">
+      <DependentUpon>AutoCompleteTextboxApn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Apn\ComposeNewApnPost.xaml.cs">
+      <DependentUpon>ComposeNewApnPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Apn\ShowConversation.xaml.cs">
+      <DependentUpon>ShowConversation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Apn\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\AskForTypeOfView.xaml.cs">
+      <DependentUpon>AskForTypeOfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\CreateOrEditView.xaml.cs">
+      <DependentUpon>CreateOrEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\DebugSettings.xaml.cs">
+      <DependentUpon>DebugSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\DebugStatistics.xaml.cs">
+      <DependentUpon>DebugStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\EditFilter.xaml.cs">
+      <DependentUpon>EditFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Facebook\ComposeNewComment.xaml.cs">
+      <DependentUpon>ComposeNewComment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Facebook\ComposeNewStatus.xaml.cs">
+      <DependentUpon>ComposeNewStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Facebook\ShowUser.xaml.cs">
+      <DependentUpon>ShowUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\FirstStartWizard.xaml.cs">
+      <DependentUpon>FirstStartWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\ManageLists.xaml.cs">
+      <DependentUpon>ManageLists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\NewList.xaml.cs">
+      <DependentUpon>NewList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\NotLicensed.xaml.cs">
+      <DependentUpon>NotLicensed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\QuoteFM\QuoteFM_AuthEasy.xaml.cs">
+      <DependentUpon>QuoteFM_AuthEasy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\QuoteFM\ListUsers.xaml.cs">
+      <DependentUpon>ListUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\ReenableAccounts.xaml.cs">
+      <DependentUpon>ReenableAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\SearchResultsWindow.xaml.cs">
+      <DependentUpon>SearchResultsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\SearchUser.xaml.cs">
+      <DependentUpon>SearchUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\ShowDebugMessages.xaml.cs">
+      <DependentUpon>ShowDebugMessages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\ShowUser.xaml.cs">
+      <DependentUpon>ShowUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Startup.xaml.cs">
+      <DependentUpon>Startup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Twitter\ShowConversation.xaml.cs">
+      <DependentUpon>ShowConversation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\UpdateAvailable.xaml.cs">
+      <DependentUpon>UpdateAvailable.xaml</DependentUpon>
+    </Compile>
+    <Page Include="API\Facebook\AuthorizeNewFacebookAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="API\Facebook\OAuthUpdater.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AppDotNet\ItemBoxApn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AppDotNet\ListBoxUsers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AppDotNet\UserListItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AutoCompleteTextboxForTwitterUsernames.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\BorderStandard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Facebook\CommentBoxFacebook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Facebook\ItemBoxFacebook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Facebook\UserInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IStoreListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBoxAccounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NonAutoScrollListbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProxySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ComboboxAccounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ComboBoxLists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EditableCheckbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InfoBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemBoxTwitter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBoxItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBoxPersons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\QuoteFM\ItemBoxQuoteFm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\QuoteFM\ListBoxUsers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\QuoteFM\UserInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\QuoteFM\UserListItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SearchTextbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataTemplates\ItemInListbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DefaultLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Apn\AddMarkdownLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Apn\AutoCompleteTextboxApn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Apn\ComposeNewApnPost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\Apn\ShowConversation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\Apn\UserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\AskForTypeOfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\ComposeNewTweet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\CreateOrEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\DebugSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\DebugStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\EditFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Facebook\ComposeNewComment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\Facebook\ComposeNewStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\Facebook\ShowUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\FirstStartWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\GetOAuthorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Mainwindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="API\Functions.cs" />
+    <Compile Include="API\ConnectionData.cs" />
+    <Compile Include="API\TweetSharpConverter.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\TextblockItem.cs" />
+    <Compile Include="Controls\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Search.cs" />
+    <Compile Include="UserInterface\ComposeNewTweet.xaml.cs">
+      <DependentUpon>ComposeNewTweet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\GetOAuthorization.xaml.cs">
+      <DependentUpon>GetOAuthorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Mainwindow.xaml.cs">
+      <DependentUpon>Mainwindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserInterface\ManageLists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\NewList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\NotLicensed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Preferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\QuoteFM\QuoteFM_AuthEasy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\QuoteFM\ListUsers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\ReenableAccounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\SearchResultsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\SearchUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\ShowDebugMessages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\ShowUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Startup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Twitter\ShowConversation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\UpdateAvailable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\AccountTwitter.cs" />
+    <Compile Include="AppController.cs" />
+    <Compile Include="HSBColor.cs" />
+    <Compile Include="Model\TweetList.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Model\TwitterItem.cs" />
+    <Compile Include="UserInterface\Preferences.xaml.cs">
+      <DependentUpon>Preferences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\View.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Setup\checkDotNetFull.nsh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\Documentation.URL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\UAC.nsh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\32px\timeline.png" />
+    <Content Include="API\HtmlAgility\HtmlAgilityPack.dll" />
+    <Content Include="API\HtmlAgility\HtmlAgilityPack.pdb" />
+    <Resource Include="API\HtmlAgility\HtmlAgilityPack.XML">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Content Include="ExternalLibraries\Microsoft.WindowsAPICodePack.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\Microsoft.WindowsAPICodePack.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\Microsoft.WindowsAPICodePack.Shell.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\Microsoft.WindowsAPICodePack.Shell.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\QuoteSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\QuoteSharp.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExternalLibraries\WPFToolkit.Extended.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\16px\Facebook\link.png" />
+    <Resource Include="Images\16px\Facebook\photo.png" />
+    <Resource Include="Images\16px\Facebook\statusMessage.png" />
+    <Resource Include="Images\16px\Facebook\event.png" />
+    <Resource Include="Images\16px\Facebook\checkIn.png" />
+    <Resource Include="Images\16px\Facebook\video.png" />
+    <Resource Include="Images\16px\Facebook\note.png" />
+    <Resource Include="Images\32px\viewAll.png" />
+    <Resource Include="Images\16px\rss.png" />
+    <Resource Include="Images\16px\isConversation.png" />
+    <Resource Include="Images\16px\heart.png" />
+    <Resource Include="Images\16px\Twitter\TweetMarker.png" />
+    <Resource Include="Images\32px\favorite.png" />
+    <Resource Include="Images\16px\isFavroite.png" />
+    <Resource Include="Images\AppDotNet\alpha.png" />
+    <Resource Include="Images\16px\flattr_logo_16.png" />
+    <Resource Include="Images\16px\filter.png" />
+    <Resource Include="Images\AppDotNet\appdotnetSmall.png" />
+    <Resource Include="Images\32px\allItems.png" />
+    <Content Include="Images\ExternalServices\delicious.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ExternalServices\instapaper.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ExternalServices\pinboard.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ExternalServices\pocket.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ExternalServices\twitlonger.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Facebook\like.png" />
+    <Resource Include="Images\Facebook\commentOverlay.png" />
+    <Resource Include="Images\Facebook\shareOverlay.png" />
+    <Resource Include="Images\Facebook\unlike.png" />
+    <Resource Include="Images\tiny\trash.png" />
+    <Resource Include="Images\tiny\editDarkGray.png" />
+    <Resource Include="Images\snarl.png" />
+    <Resource Include="Images\GoogleReader\GoogleReader.png" />
+    <Resource Include="Images\GoogleReader\markAsRead.png" />
+    <None Include="Images\GoogleReader\rss.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\tiny\conversation.png" />
+    <Resource Include="Images\QuoteFm\QuoteFm.png" />
+    <Resource Include="Images\tiny\isFavorite.png" />
+    <Resource Include="Images\WindowNavigations\close.png" />
+    <Resource Include="Images\WindowNavigations\minimize.png" />
+    <Resource Include="Images\WindowNavigations\maximize.png" />
+    <Content Include="Setup\logoSetupBig.xcf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\logoSetupSmall.xcf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\setup.nsi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Setup\Documentation.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\logoSetupBig.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\logoSetupSmall.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\UAC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Setup\uninstall.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\tiny\arrowUp.png" />
+    <Resource Include="Images\tiny\arrowDown.png" />
+    <Resource Include="Images\tiny\edit.png" />
+    <Resource Include="Images\tiny\hasGeo.png" />
+    <Resource Include="Images\tiny\isList.png" />
+    <Resource Include="Images\tiny\isDirectMessage.png" />
+    <Resource Include="Images\tiny\isMention.png" />
+    <Resource Include="Images\tiny\isSearch.png" />
+    <Content Include="Images\Nymphicus_icon_512_freigestellt.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\32px\view.png" />
+    <Resource Include="Images\32px\retweet.png" />
+    <Resource Include="Images\32px\directMessage.png" />
+    <Resource Include="Images\32px\mention.png" />
+    <Resource Include="Images\32px\list.png" />
+    <Resource Include="Images\32px\shortenUrls.png" />
+    <Resource Include="Images\16px\clear.png" />
+    <Resource Include="Images\32px\image.png" />
+    <Resource Include="Images\32px\searchHover.png" />
+    <Resource Include="Images\32px\preferencesHover.png" />
+    <Resource Include="Images\32px\refreshHover.png" />
+    <Resource Include="Images\32px\writeNewTweetHover.png" />
+    <Content Include="Images\Nymphicus_icon_512_freigestellt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Nymphicus_icon_32.png" />
+    <Resource Include="Images\32px\search.png" />
+    <Resource Include="Images\32px\preferences.png" />
+    <Resource Include="Images\32px\refresh.png" />
+    <Resource Include="Images\32px\writeNewTweet.png" />
+    <Resource Include="Images\32px\user.png" />
+    <Resource Include="Images\16px\retweetedAlready.png" />
+    <Resource Include="Images\16px\favoritAlready.png" />
+    <Resource Include="Images\16px\favorit.png" />
+    <Resource Include="Images\16px\favoritHover.png" />
+    <Resource Include="Images\tiny\isRetweet.png" />
+    <Resource Include="Images\16px\isRetweet.png" />
+    <Resource Include="Images\32px\windowClose.png" />
+    <Resource Include="Images\Glasbaustein.png" />
+    <Resource Include="Images\16px\directMessageHover.png" />
+    <Resource Include="Images\16px\replyHover.png" />
+    <Resource Include="Images\16px\retweetHover.png" />
+    <Resource Include="Images\16px\account.png" />
+    <Resource Include="Images\16px\reply.png" />
+    <Resource Include="Images\16px\star.png" />
+    <Content Include="ExternalLibraries\CustomColorPicker.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\16px\reload.png" />
+    <Resource Include="Images\16px\plus.png" />
+    <Resource Include="Images\16px\minus.png" />
+    <Resource Include="Images\16px\location.png" />
+    <Resource Include="Images\16px\directMessage.png" />
+    <Resource Include="Images\16px\search.png" />
+    <Resource Include="Images\16px\retweet.png" />
+    <Resource Include="Images\16px\link.png" />
+    <Resource Include="Images\16px\info.png" />
+    <Resource Include="Images\16px\check.png" />
+    <Resource Include="Images\16px\conversation.png" />
+    <Resource Include="Images\16px\email.png" />
+    <Resource Include="Images\32px\go-next.png" />
+    <Resource Include="Images\32px\internet.png" />
+    <Resource Include="Images\32px\newAccount.png" />
+    <Resource Include="Images\32px\writeNew.png" />
+    <Resource Include="Images\16px\facebook.png" />
+    <Resource Include="Images\16px\twitter.png" />
+    <Content Include="Images\NymphicusIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Nymphicus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>REM "C:\Program Files (x86)\Windows Kits\8.1\bin\x64\signtool.exe" sign /d "Nymphicus" /du "http://www.nymphicusapp.com/windows" /f "C:\Users\Sven\Dropbox\Development\Zertifikate\codesign.pfx" /v "$(TargetPath)"
+REM "C:\Program Files (x86)\NSIS\makensis.exe" "$(TargetDir)\Setup\setup.nsi"
+REM "C:\Program Files (x86)\Windows Kits\8.1\bin\x64\signtool.exe" sign /d "Nymphicus" /du "http://www.nymphicusapp.com/windows" /f "C:\Users\Sven\Dropbox\Development\Zertifikate\codesign.pfx" /v "$(TargetDir)\Setup\Setup-Nymphicus.exe"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

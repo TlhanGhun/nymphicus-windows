@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="Nymphicus.Controls.Facebook.CommentBoxFacebook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Nymphicus.Controls" 
+             d:DesignHeight="300" d:DesignWidth="500" xmlns:my="clr-namespace:Nymphicus.Converter">
+    <UserControl.Resources>
+        <my:ThumbnailConverter x:Key="ThumbnailConverter1" />
+        <Storyboard x:Key="FadeAway">
+            <DoubleAnimation  Name="DimmAway"
+                                            Storyboard.TargetName="wrapPanelAvatarOverlay"
+                                            Storyboard.TargetProperty="(Opacity)"
+                                            From="0.75" To="0.0" Duration="0:0:1" 
+                                            AutoReverse="False" RepeatBehavior="1x" 
+                                         />
+
+        </Storyboard>
+        <Storyboard x:Key="FadeIn">
+            <DoubleAnimation  Name="DimmIn"
+                                            Storyboard.TargetName="wrapPanelAvatarOverlay"
+                                            Storyboard.TargetProperty="(Opacity)"
+                                            From="0.75" To="0.75" Duration="0:0:1" 
+                                            AutoReverse="False" RepeatBehavior="1x" 
+                                         />
+
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch" Name="GridMainItem" MouseEnter="GridMainItem_MouseEnter" MouseLeave="GridMainItem_MouseLeave" >
+        <Border BorderBrush="LightGray"  BorderThickness="1,1,0,0" CornerRadius="3" Background="#eee" Margin="0,0,0,3" Padding="2" HorizontalAlignment="Stretch">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="36" Height="36" Margin="0,0,0,0" MaxWidth="36" MaxHeight="36" Source="{Binding Path=User.Avatar}" />
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Name="wrapPanelAvatarOverlay" Width="36" Height="36" Background="Black" Opacity="0"  Margin="0,0,0,0">
+                        <Grid  Width="36" Margin="0,0,0,0" Height="36" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Button ToolTip="Like" Name="buttonLike" Width="18" Height="18" Background="Transparent" BorderBrush="Transparent" Margin="0" CommandParameter="{Binding}" Click="buttonLike_Click">
+                                    <Image Name="imageButtonLike">
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="Image.Opacity" Value="0.7" />
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/Facebook/like.png" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="Image.IsMouseOver" Value="True">
+                                                        <Setter Property="Image.Opacity" Value="1.0" />
+                                                    </Trigger>
+                                                    <DataTrigger Binding="{Binding Path=isLiked}" Value="True">
+                                                        <Setter Property="Image.Source" Value="/Nymphicus;component/Images/Facebook/unlike.png" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                           
+                        </Grid>
+
+                    </WrapPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Vertical">
+                        <Button Name="ButtonUsernameAuthorRetweet" CommandParameter="{Binding}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <TextBlock Name="MessageAuthor" Text="{Binding Path=User.FullName}"  FontSize="10" FontStyle="Italic" Foreground="Black" Margin="0,0,5,0">
+                            </TextBlock>
+                        </Button>
+                        <TextBlock x:Name="MessageText" Text="{Binding Path=Text}" TextWrapping="Wrap" Foreground="Black" FontSize="10" />
+
+                        <TextBlock Name="LikesCount" Text="{Binding Path=LikesDisplayText}"  Foreground="Black" FontSize="8">
+                                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=LikesCount}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                        </TextBlock>
+
+                        <controls:TextblockItem Foreground="Black" Text="{Binding Path=HumanReadableAgo}" FontSize="8" FontStyle="Italic"  />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

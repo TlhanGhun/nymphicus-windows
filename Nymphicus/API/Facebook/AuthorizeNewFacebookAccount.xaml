@@ -1,0 +1,12 @@
+﻿<Window x:Class="Nymphicus.API.FacebookAPI.AuthorizeNewFacebookAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AuthorizeNewFacebookAccount" Height="347" Width="465"
+                  xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration">
+    <Grid>
+        <wfi:WindowsFormsHost>
+            <wf:WebBrowser x:Name="webBrowserOAuth" Height="246" Margin="12,12,0,0"  Width="479" />
+        </wfi:WindowsFormsHost>
+    </Grid>
+</Window>

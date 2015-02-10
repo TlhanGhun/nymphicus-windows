@@ -1,0 +1,54 @@
+﻿<Window x:Class="Nymphicus.UserInterface.ComposeNewApnPost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        Title="Compose new App.net post" Height="190" Width="332"
+        Style="{StaticResource DefaultWindowStyle}" Icon="/Nymphicus;component/Images/AppDotNet/alpha.png"
+        xmlns:controls="clr-namespace:Nymphicus.Controls" 
+        xmlns:apn_controls="clr-namespace:Nymphicus.Controls.Apn" 
+        xmlns:local="clr-namespace:Nymphicus"
+        Topmost="True"
+        xmlns:UserInterface="clr-namespace:Nymphicus.UserInterface">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static UserInterface:ComposeNewTweet.Cancel}" Executed="CancelExecuted"/>
+        
+        <CommandBinding Command="{x:Static UserInterface:ComposeNewTweet.UploadImage}" Executed="UploadImageExecuted"/>
+        <CommandBinding Command="{x:Static UserInterface:ComposeNewTweet.SelectAccount}" Executed="SelectAccountExecuted"/>
+    </Window.CommandBindings>
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1" Margin="5,0,5,0">
+                <apn_controls:AutoCompleteTextboxApn Margin="3"  x:Name="autoCompeteTextbox_post" ToolTip="Text of your tweet (press ctrl + return to send)" />
+            </Border>
+            <Label Content="255" Height="28" Margin="0,0,12,0" Name="labelTextLength" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="140" Foreground="Gray" HorizontalContentAlignment="Right" FontStyle="Italic" FontWeight="Bold" />
+            <Label Content="In reply to @xxx" Height="28" HorizontalAlignment="Left" Margin="12,0,0,0" Name="labelInReplyTo" VerticalAlignment="Bottom" Width="242" FontStyle="Italic" Foreground="IndianRed" Visibility="Collapsed" OpacityMask="#93000000" />
+            <extToolkit:BusyIndicator Name="progressBarUploading" Visibility="Hidden"  IsBusy="True" BusyContent="Uploading image..." >
+
+            </extToolkit:BusyIndicator>
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            <Border Background="White" BorderBrush="LightGray" BorderThickness="1"  Margin="5">
+                <Grid>
+                    <Button Content="Send post" ToolTip="Send post (ctrl + return)" Height="23" HorizontalAlignment="Right" Margin="0,0,4,2" Name="buttonSendPost" VerticalAlignment="Bottom" Width="75" Click="buttonSendPost_Click" IsEnabled="False" />
+                    <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="4,0,0,2" Name="buttonCancel" VerticalAlignment="Bottom" Width="49" Click="buttonCancel_Click" ToolTip="Cancel and close window (Escape)" />
+                    <controls:ComboboxAccounts ShowOnlyApn="True" Height="23" Margin="119,0,85,2" x:Name="comboBoxAccount" VerticalAlignment="Bottom" ToolTip="Select account (ctrl + o)" />
+                    <Button  Height="23" HorizontalAlignment="Left" Margin="86,0,0,2" Name="buttonAddImage" 
+                             VerticalAlignment="Bottom" Width="27" Click="buttonAddImage_Click" 
+                             ToolTip="Upload an image (ctrl + i)"
+                             MouseRightButtonDown="buttonAddImage_MouseRightButtonDown">
+                        <Image Name="imageAddImage" Source="/Nymphicus;component/Images/32px/image.png" />
+                    </Button>
+                    <Button ToolTip="Insert MarkDown link" Height="23" HorizontalAlignment="Left" Margin="59,0,0,2" Name="buttonShortenUrls" VerticalAlignment="Bottom" Width="24" Click="buttonShortenUrls_Click_1">
+                        <Image Source="/Nymphicus;component/Images/32px/shortenUrls.png" Name="imageShortenUrls" />
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+
+</Window>

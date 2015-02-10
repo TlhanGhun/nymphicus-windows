@@ -1,0 +1,20 @@
+﻿<Window x:Class="Nymphicus.UserInterface.AskForTypeOfView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="What kind of View do you want to create?" Height="227.619" Width="321.905"
+          Style="{StaticResource DefaultWindowStyle}" 
+        xmlns:my="clr-namespace:Nymphicus.Controls" Icon="/Nymphicus;component/Images/32px/view.png" WindowStyle="ToolWindow" Topmost="True">
+    <Grid>
+        <TextBlock Margin="10,10,9.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="102">
+            <TextBlock.Text>
+                Due to the Display Requirements of Twitter API 1.1 it is not possible anymore to have a View which does mix tweets and items from other social networks.
+                Because of this you need to decide if your View shall be Twitter only or all the other supported social networks here in Nymphicus.
+            </TextBlock.Text>
+            
+        </TextBlock>
+        <RadioButton Name="radiobuttonTwitterOnly" GroupName="groupViewType" IsChecked="True" Content="Create a Twitter only View" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="radiobuttonAllOther" GroupName="groupViewType" Content="Create a View for all social networks except Twitter" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
+        <Button Content="Go ahead" Name="buttonGoAhead" HorizontalAlignment="Left" Margin="230,169,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.749,0.118" Click="buttonGoAhead_Click_1"/>
+
+    </Grid>
+</Window>

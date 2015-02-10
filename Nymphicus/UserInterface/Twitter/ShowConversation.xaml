@@ -1,0 +1,13 @@
+﻿<Window x:Class="Nymphicus.UserInterface.Twitter.ShowConversationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Show conversation" Height="430" Width="382"
+                Style="{StaticResource DefaultWindowStyle}" 
+
+           xmlns:controls="clr-namespace:Nymphicus.Controls" 
+        xmlns:local="clr-namespace:Nymphicus"
+        Icon="/Nymphicus;component/Images/32px/mention.png">
+    <Grid>
+        <controls:ListBoxItems x:Name="listBoxItems" Margin="3" />
+    </Grid>
+</Window>

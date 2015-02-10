@@ -1,0 +1,36 @@
+﻿<Window x:Class="Nymphicus.UserInterface.Facebook.ComposeNewComment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        Title="Write new comment" Height="223" Width="332"
+        Style="{StaticResource DefaultWindowStyle}" Icon="/Nymphicus;component/Images/16px/facebook.png"
+       
+        xmlns:controls="clr-namespace:Nymphicus.Controls" 
+        xmlns:local="clr-namespace:Nymphicus"
+        Loaded="Window_Loaded" Topmost="True">
+        <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Border Background="White" BorderBrush="DarkGray" BorderThickness="1"  Margin="5,0,5,0">
+            <TextBlock Name="textblockCommentedText" Foreground="Gray" TextWrapping="Wrap" Padding="5" />
+        </Border>
+        <Grid Grid.Row="1">
+            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1"  Margin="5,0,5,0">
+                <TextBox Margin="3"  Name="textBoxComment" TextWrapping="Wrap" AcceptsReturn="True" />
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1"  Margin="5">
+                <Grid>
+                    <Button Content="Send comment" Height="23" HorizontalAlignment="Right" Margin="0,0,4,2" Name="buttonSendComment" VerticalAlignment="Bottom" Width="94" Click="buttonSendComment_Click" IsEnabled="True" />
+                    <controls:ComboboxAccounts  ShowOnlyFacebook="True" Height="23" Margin="58,0,100,2" x:Name="comboBoxAccount" VerticalAlignment="Bottom"  />
+                    <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="4,0,0,2" Name="buttonCancel" VerticalAlignment="Bottom" Width="49" Click="buttonCancel_Click" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+
+</Window>

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Nymphicus.Controls.ListBoxAccounts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ListView Name="listViewAccounts" Margin="0" MinWidth="150">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White" CornerRadius="2" BorderThickness="4,1,1,1" Margin="2,2,2,2">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{Binding Path=accountColor}" />
+                        </Border.BorderBrush>
+                        <Grid HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="16" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Name="ServiceIcon" Source="{Binding Path=Avatar}" Margin="1,1,1,1"  Height="14" />
+                            <TextBlock Grid.Column="1" MinWidth="154" Name="FullName" Text="{Binding Path=username}" Margin="2,2,2,2" ToolTip="{Binding Path=Id}">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="Black" />
+                                        </TextBlock.Foreground>
+                                <TextBlock.Style>
+                                    <Style>
+                                        <Setter Property="TextBlock.Text" Value="{Binding Path=username}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=AccountType}" Value="Facebook">
+                                                <Setter Property="TextBlock.Text" Value="{Binding Path=FullName}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Image Grid.Column="2">
+                                <Image.Style>
+                                    <Style>
+                                        <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/twitter.png" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=AccountType}" Value="Facebook">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/facebook.png" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=AccountType}" Value="Google Reader">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/16px/rss.png" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=AccountType}" Value="QUOTE.fm">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/QuoteFm/QuoteFm.png" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=AccountType}" Value="App.net">
+                                                <Setter Property="Image.Source" Value="/Nymphicus;component/Images/AppDotNet/alpha.png" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

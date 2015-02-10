@@ -1,0 +1,27 @@
+﻿<Window x:Class="Nymphicus.UserInterface.Facebook.ShowUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShowUser" Height="450" Width="730" 
+        x:Name="ShowUserWindow"
+        Style="{StaticResource DefaultWindowStyle}" 
+        xmlns:controls="clr-namespace:Nymphicus.Controls.Facebook" 
+        xmlns:controlsDefault="clr-namespace:Nymphicus.Controls" 
+        xmlns:local="clr-namespace:Nymphicus"
+        Loaded="Window_Loaded" Icon="/Nymphicus;component/Images/32px/user.png"
+        xmlns:dataTypes="clr-namespace:Nymphicus.Model"
+        >
+    <Grid Name="MainGrid" DataContext="{Binding ElementName=ShowUserWindow, Path=MyPerson}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380" />
+            <ColumnDefinition Width="250*" />
+        </Grid.ColumnDefinitions>
+        <controls:UserInfo x:Name="userInfoBox" Margin="0,0,0,109" />
+        <controlsDefault:ListBoxItems Grid.Column="1" x:Name="listBoxItems" />
+        <Border  Background="White" BorderBrush="DarkGray" BorderThickness="1" Padding="4" Margin="0,0,0,0"  Height="105" VerticalAlignment="Bottom">
+            <VirtualizingStackPanel Orientation="Vertical">
+                <TextBox Height="68" HorizontalAlignment="Left" Name="textBoxPostToWall" VerticalAlignment="Bottom" Width="374" Margin="0,0,0,2" KeyDown="textBoxPostToWall_KeyDown" TextWrapping="Wrap" />
+            <Button IsEnabled="False" Content="Post to wall" Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonPostToWall" VerticalAlignment="Bottom" Width="Auto" Click="buttonPostToWall_Click" />
+                </VirtualizingStackPanel>
+        </Border>
+    </Grid>
+</Window>

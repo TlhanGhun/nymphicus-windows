@@ -1,0 +1,34 @@
+﻿<Window x:Class="Nymphicus.UserInterface.NotLicensed"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="No license available" Height="274" Width="441"
+        Loaded="Window_Loaded"
+          Icon="/Nymphicus;component/Images/Nymphicus_icon_512_freigestellt.ico"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="0">
+            <TextBlock Name="textboxNotLicensed" TextWrapping="Wrap">
+                Hello and thank you for using Nymphicus!
+                <LineBreak />
+                <LineBreak />
+                We hope you enjoy using it and we'll keep up our work to make Nymphicus even better. To do so we need to ask you to <Hyperlink Click="hyperlinkToPurchasePage_Click" Name="hyperlinkToPurchasePage">pay for a license</Hyperlink> for Nymphicus.
+                <LineBreak />
+                <LineBreak />
+                This small window is the only constraint if you don't purchase Nymphicus - please let us not regret this decision. We don't want you bother to much with "purchase reminders" but we'll check every now and then if we can stay with that. Currently we are already rethinking this decission...
+                <LineBreak />
+                <LineBreak />
+                But now have fun and let us know how you like it :)
+            </TextBlock>
+        </Border>
+        <Border Background="White" Margin="2" BorderBrush="DarkGray" BorderThickness="1"  Grid.Row="1">
+            <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="ignoreForNow" Content="Remind me again next time" Height="23" Click="ignoreForNow_Click" Background="DarkOrange" />
+                <Button Name="buttonGetLicense" Content="Buy a license now" Margin="5,0,5,0" Height="23" Click="buttonGetLicense_Click" Background="LightGreen" />
+            </VirtualizingStackPanel>
+        </Border>
+    </Grid>
+</Window>

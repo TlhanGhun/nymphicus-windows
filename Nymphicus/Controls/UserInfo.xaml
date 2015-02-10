@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Nymphicus.Controls.UserInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Nymphicus.Controls" 
+             d:DesignHeight="500" d:DesignWidth="335">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Image Source="{Binding Path=Avatar}" Height="40" Name="imageAvatarSelectedAccount" Stretch="Fill" Width="40" Margin="8,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <controls:InfoBox Margin="56,6,0,0" x:Name="infoBoxUsername" InfoTitle="{Binding Path=Username}" InfoContent="{Binding Path=Realname}" MouseDown="infoBoxUsername_MouseDown" ToolTip="Click to open profile on Twitter homepage" Cursor="Hand" />
+            <Button Name="buttonMention" Click="buttonMention_Click" ToolTip="Compose mention" Width="16" Height="16" Background="Transparent" BorderBrush="Transparent" Margin="0,12,6,0" CommandParameter="{Binding}" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image Name="imageMention" Source="/Nymphicus;component/Images/16px/reply.png">
+                        <Image.Style>
+                            <Style>
+                                <Setter Property="Image.Opacity" Value="1.0" />
+                                <Style.Triggers>
+                                    <Trigger  Property="Image.IsMouseOver" Value="True">
+                                        <Setter Property="Image.Opacity" Value="0.8" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            <Button Click="Button_Click_1" ToolTip="Direct message" Width="16" Height="16" Background="Transparent" BorderBrush="Transparent"   Margin="0,31,6,0"  CommandParameter="{Binding}" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image Width="16" Source="/Nymphicus;component/Images/16px/directMessage.png">
+                    <Image.Style>
+                        <Style>
+                            <Setter Property="Image.Opacity" Value="1.0" />
+                            <Style.Triggers>
+                                <Trigger  Property="Image.IsMouseOver" Value="True">
+                                    <Setter Property="Image.Opacity" Value="0.8" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                 
+                    </Image>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+        </Grid>
+        <controls:InfoBox Grid.Row="1" x:Name="InfoBoxDescription"  InfoContent="{Binding Path=Description}" InfoTitle="Description"  />
+        <controls:InfoBox Grid.Row="2" x:Name="InfoBoxWebsite"  InfoContent="{Binding Path=Website}" InfoTitle="Website"  />
+        <controls:InfoBox Grid.Row="3" x:Name="InfoBoxLocation" InfoTitle="Location" InfoContent="{Binding Path=Location}" />
+        <WrapPanel Grid.Row="4" x:Name="Statistics1" Orientation="Horizontal" Margin="6,0" HorizontalAlignment="Center">
+            <controls:InfoBox x:Name="InfoBoxFollowers" InfoTitle="Followers" InfoContent="{Binding Path=NumberOfFollowers}" Width="80" />
+            <controls:InfoBox x:Name="InfoBoxFollowing" InfoTitle="Following" InfoContent="{Binding Path=NumberOfFriends}" Width="80" />
+            <controls:InfoBox x:Name="InfoBoxTweets" InfoTitle="Tweets" InfoContent="{Binding Path=NumberOfItems}" Width="80" />
+            <controls:InfoBox x:Name="InfoBoxg" InfoTitle="Listed" InfoContent="{Binding Path=ListedCount}" Width="80" />
+        </WrapPanel>
+        <Grid Grid.Row="5" x:Name="Friendships" Margin="6,0,12,6">
+            <Border CornerRadius="5" Background="White" BorderBrush="DarkGray" BorderThickness="1" Padding="4">
+                <Grid Name="GridFriendships">
+                
+                </Grid> 
+             </Border>
+        </Grid>
+        <Grid Grid.Row="6" x:Name="Lists" Margin="6,0,12,6">
+            <Border CornerRadius="5" Background="White" BorderBrush="DarkGray" BorderThickness="1" Padding="4">
+                <WrapPanel Orientation="Vertical">
+                    <WrapPanel>
+                        <Button Content="Add user to list -->" Height="23" HorizontalAlignment="Left" Name="buttonAddToList" Margin="0,0,6,0" VerticalAlignment="Top" Click="buttonAddToList_Click" CommandParameter="{Binding}" Background="#FFAAABFF" />
+                        <controls:ComboBoxLists x:Name="comboBoxLists" />
+                    </WrapPanel>
+                    <Button Content="Create new list and add user to it" Height="23" Name="buttonAddToNewList" Click="buttonAddToNewList_Click" CommandParameter="{Binding}" Margin="0,4,0,0"  Background="#FFAAABFF" />
+                </WrapPanel>
+            </Border>           
+        </Grid>
+    </Grid>
+</UserControl>
